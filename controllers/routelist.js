@@ -71,7 +71,7 @@ function generateTicketHash(route) {
 // Get a list of routes
 router.get('/list-of-routes', async (req, res) => {
     try {
-        const routes = await Route.find();
+        const routes = await Route.find().populate('fromStation toStation');
         res.json(routes);
     } catch (err) {
         res.status(500).json({ message: err.message });
@@ -80,15 +80,11 @@ router.get('/list-of-routes', async (req, res) => {
 
 // Create a new route
 router.post('/create-routes', async (req, res) => {
-    const route = new Route({
-        fromStation: req.body.fromStation,
-        toStation: req.body.toStation,
-        price: req.body.price,
-    });
-
     try {
-        const newRoute = await route.save();
-        res.status(201).json(newRoute);
+        const { fromStation, toStation, price } = req.body;
+        const route = new Route({ fromStation, toStation, price });
+        await route.save();
+        res.status(201).json(route);
     } catch (err) {
         res.status(400).json({ message: err.message });
     }

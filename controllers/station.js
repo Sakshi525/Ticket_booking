@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Station = require('../models/station');
 
-// API endpoints
+// Create a new station
 router.post('/create-stations', async (req, res) => {
     try {
         const { name, id } = req.body;
@@ -15,6 +15,7 @@ router.post('/create-stations', async (req, res) => {
     }
 });
 
+// Get all stations
 router.get('/list-of-stations', async (req, res) => {
     try {
         const stations = await Station.find();
@@ -25,6 +26,7 @@ router.get('/list-of-stations', async (req, res) => {
     }
 });
 
+// Update a station by ID
 router.put('/update-stations/:id', async (req, res) => {
     try {
         const { id } = req.params;
@@ -37,6 +39,7 @@ router.put('/update-stations/:id', async (req, res) => {
     }
 });
 
+// Delete a station by ID
 router.delete('/delete-stations/:id', async (req, res) => {
     try {
         const { id } = req.params;

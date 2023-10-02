@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const stationSchema = new mongoose.Schema({
-    name: String,
-    id: String,
+    name: { type: String, required: true },
+    stationId: { type: String, required: true, unique: true },
 });
 
 module.exports = mongoose.model('Station', stationSchema);

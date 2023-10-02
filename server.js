@@ -16,8 +16,8 @@ db.on('error', (error) => console.error(error));
 db.once('open', () => console.log('Connected to Database'));
 
 //API routes
-app.use('/api-routes', apiRoutes);
-app.use('/api-station', apiStation);
+app.use('/routes', apiRoutes);
+app.use('/stations', apiStation);
 
 // Start the server
 app.listen(PORT, () => {
