@@ -1,0 +1,47 @@
+ 
+Created by: Jyot Hathi
+Technology: Node, monoDB
+Timing: 3-4 hours
+
+
+
+
+Create an node application for city transport tikcet booking app with following points
+
+1. Stations List : APIs to Manage (Create / Update / Delete ) list of Stations
+      Station Name
+      Station ID
+2. RouteList : APIs to mange cost between two stations, only direct routes will be there in system means if we have route A-B, A-D, C-D are defined in system then one can choose from that only, no intermidiate stations booking like A-C will be allowed as there is no route defined for A-C 
+     From Station (ID)
+     To Station (ID)
+     PRICE (ID)
+3. Ticket Generation & Validation 
+  > Generate tikcet based on from and to stations  (Only Direct path will be   there from RouteList).
+ > Ticket will be valid till 150 mins only from it has been booked
+> Final Tikcet wll include details like From & To station , Price and Unique hash which to identify and validate ticket.  Hash will have complete details like From ,To , Price & Ticket valid From and Valid to time to validate 
+
+-------------------------------------------------------------------------------------------------------------------
+
+Ex : 
+Stations : Shivranjani , Nehrunagar
+RouteList : 
+ 1. Shivranjani (From) - Nehrunagar (To) - 10 (Price)
+Tikcet Generation : 
+     Given Input :  Shivranjani (From) - Nehrunagar (To) 
+     Output tikcet :  
+                      {  
+                       From: Shivranjani 
+                       To : Nehrunagar,
+                      Price : 10,
+                      TicketHash : 123abcccbcdf 
+                      } 
+Validation of Ticket :  Validate tikcet based on hash and return valid or not
+
+
+
+
+Your submission will be evaluated based on the following criteria:
+Code organization and readability.
+Error handling and input validation.
+Quality and completeness of tests.
+Quality and completeness of code comments.
